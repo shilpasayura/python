@@ -1,0 +1,9 @@
+https://kidscancode.org/blog/tags/pygame/
+
+http://kidscancode.org/lessons/
+
+
+https://github.com/kidscancode/pygame_tutorials
+
+
+https://www.101computing.net/pong-tutorial-using-pygame-adding-a-bouncing-ball/

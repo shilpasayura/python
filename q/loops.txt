@@ -1,0 +1,46 @@
+This code is supposed to print the numbers 1,2,3,4,5. Fix it.
+
+things = str([1, 2, 3, 4, 5])
+for thing in things:
+    print(thing)
+This code is supposed to print [1, 2, 3, 4, 5, 6]. Fix it without changing the before list.
+
+before = [[1, 2], [3, 4], [5, 6]]
+after = []
+for number in before:
+    after.append(number)
+print(after)
+This program is supposed to convert everything in a list to integers and then calculate their sum. It should print 6 because 1 + 2 + 3 is 6. Fix the program.
+
+input = ['1', '2', '3']
+
+for string in input:
+    numbers = []
+    numbers.append(int(string))
+
+result = 0
+for n in numbers:
+    result + n
+print("their sum is", result)
+This program is supposed to print [1, 2, 3]. Fix it.
+
+numbers = ['1', '2', '3']
+for number in numbers:
+    number = int(number)
+print(numbers)
+Make a program that prints a pyramid like shown below. Ask the user to type the number of rows needed.
+
+OUTPUT for 5 rows
+1 
+1 2 
+1 2 3 
+1 2 3 4 
+1 2 3 4 5 
+Make a program to get a pyramid like shown below where user can type the number of rows needed.
+
+OUTPUT for 5 rows
+1 2 3 4 5 
+2 3 4 5 
+3 4 5 
+4 5 
+5 

@@ -1,0 +1,40 @@
+import pygame  
+  
+pygame.init()  
+screen = pygame.display.set_mode((400,500))  
+done = False  
+  
+while not done:  
+    for event in pygame.event.get():  
+        if event.type == pygame.QUIT:  
+            done = True  
+    pygame.display.flip()
+
+
+import pygame - This provides access to the pygame framework and imports all functions of pygame.
+
+pygame.init()
+initialize pygame.
+
+pygame.display.set_mode((width, height)) 
+display a window of the desired size.
+The return value is a Surface object we use to perform graphical operations.
+
+pygame.event.get()
+Used to empty the event queue. 
+
+pygame.QUIT - This is used to terminate the event when we click on the close button at the corner of the window.
+
+pygame.display.flip()
+Make any updates become visible.
+
+Pygame Surface
+Used to display any image. 
+
+
+Pygame Clock
+Pygame clock tracks time in milliseconds. 
+
+Pygame Blit
+Process to render the game object onto the surface.
+  

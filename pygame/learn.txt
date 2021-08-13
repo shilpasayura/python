@@ -1,0 +1,452 @@
+Adding Image
+First instantiate a blank surface by calling the Surface constructor with a width and height tuple.
+
+surface = pygame.Surface((100,100))  
+
+This creates a blank image of 100*100 pixels.
+
+Transparent surface with pygame.SRCALPHA
+surface = pygame.Surface((100,100), pygame.SRCALPHA)  
+
+
+import pygame  
+pygame.init()  
+white = (255, 255, 255)  
+
+h = 400  
+w = 400  
+
+#create surface
+surface = pygame.display.set_mode((h, w))  
+  
+# set window name   
+pygame.display.set_caption('Image')  
+  
+# create surface object, image is drawn on it.   
+image = pygame.image.load('ball.png')
+  
+# infinite loop   
+while True:  
+    surface.fill(white)  
+    surface.blit(image, (0, 0))  
+  
+    for event in pygame.event.get():  
+        if event.type == pygame.QUIT:  
+            pygame.quit()  
+            # quit the program.   
+            quit() 
+ 
+        # Draws the surface object to the screen.   
+        pygame.display.update()   
+
+
+Pygame Rect
+Rect is used to draw a rectangle in Pyg giving left, top, width, and height values. 
+
+rect object properties
+x,y  
+top, left, right, bottom  
+topleft, bottomleft, topright, bottomright  
+midtop, midleft, midbottom, midright  
+center, centerx, centery  
+size, width, height  
+w,h  
+
+
+import pygame  
+  
+pygame.init()  
+screen = pygame.display.set_mode((400, 300))  
+done = False  
+  
+while not done:  
+    for event in pygame.event.get():  
+        if event.type == pygame.QUIT:  
+            done = True  
+    pygame.draw.rect(screen, (0, 125, 255), pygame.Rect(30, 30, 60, 60))    
+  
+    pygame.display.flip()  
+
+Pygame Keydown
+KEYDOWN and KEYUP detect key presses and releases.
+
+key: represents every key on the keyword.
+mod: bitmask of modifier keys. shift , alt etc
+
+
+import pygame  
+pygame.init()  
+# sets the window title  
+pygame.display.set_mode((400, 400))  
+  
+while True:  
+    # gets an event from the event queue  
+    event = pygame.event.wait()  
+    # if the 'close' button of the window is pressed  
+    if event.type == pygame.QUIT:  
+        # stops the application  
+        break  
+
+    # Detects the 'KEYDOWN' and 'KEYUP' events  
+    if event.type in (pygame.KEYDOWN, pygame.KEYUP):  
+        # gets the key name  
+        key_name = pygame.key.name(event.key)  
+        # converts to uppercase the key name  
+        key_name = key_name.upper()  
+        # if any key is pressed  
+        if event.type == pygame.KEYDOWN:  
+         
+            print(u'"{}" key pressed'.format(key_name))
+ 
+        # if any key is released  
+        elif event.type == pygame.KEYUP:  
+             
+            print(u'"{}" key released'.format(key_name))  
+
+import pygame  
+  
+pygame.init()  
+screen = pygame.display.set_mode((400, 300))  
+done = False  
+is_blue = True  
+x = 30  
+y = 30  
+  
+while not done:  
+    for event in pygame.event.get():  
+        if event.type == pygame.QUIT:  
+            done = True  
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:  
+            is_blue = not is_blue  
+  
+    pressed = pygame.key.get_pressed()  
+    if pressed[pygame.K_UP]: y -= 3  
+    if pressed[pygame.K_DOWN]: y += 3  
+    if pressed[pygame.K_LEFT]: x -= 3  
+    if pressed[pygame.K_RIGHT]: x += 3  
+  
+    if is_blue:  
+        color = (0, 128, 255)  
+    else:   
+        color = (255, 100, 0)  
+    pygame.draw.rect(screen, color, pygame.Rect(x, y, 60, 60))  
+  
+    pygame.display.flip()  
+
+
+Pygame Draw
+Pygame provides geometry functions to draw simple shapes to the surface. 
+
+draw a rectangle on the given surface.
+
+pygame.draw.rect(surface, color, rect)  
+pygame.draw.rect(surface, color, rect, width=0)  
+
+Parameters:
+
+surface - Screen to draw on.
+color- This argument is used to color the given shape. The alpha value is optional if we are using a tuple.
+rect(Rect)- Draw rectangle, position, and dimensions.
+width(int)- This is optional to use the line thickness or to indicate that the rectangle is filled.
+if width == 0, (default) fill the rectangle  
+if width > 0, used for line thickness  
+if width < 0, nothing will be drawn  
+Draw a polygon
+The following functions are used to draw a polygon on the given surface.
+
+pygame.draw.polygon(surface,color,points)
+pygame.draw.polygon(surface, color, points, width=0)
+Parameters:
+
+surface - Screen to draw on.
+color- This argument is used to color the given shape. The alpha value is optional if we are using a tuple.
+points(tuple(coordinate) or list(coordinate)): A sequence of 3 or more (x,y) coordinates that make up the vertices of the polygon. Each coordinate in the sequence must be tuple/list.
+Note: - If the len(points) < 3 or points is not a sequence or points does not contain number pair, then it will raise the Value Error
+Draw an ellipse
+The following functions are used to draw an ellipse on the given surface.
+
+pygame.draw.ellipse(surface, color, rect)  
+pygame.draw.ellipse(surface, color, rect, width=0)  
+Parameters:
+
+surface - Screen to draw on.
+color- This argument is used to color the given shape. The alpha value is optional if we are using a tuple.
+rect(Rect)- Draw rectangle, position, and dimensions.
+Draw a straight line
+This method is used to draw a straight line on the given surface. There are no endcaps.
+
+pygame.draw.line(surface,color,start_pos,end_pos,width)  
+pygame.draw.line(surface,color,start_pos,end_pos,width=1)  
+Parameters:
+
+surface - Screen to draw on.
+color- This argument is used to color the given shape. The alpha value is optional if we are using a tuple.
+start_pos- start position of the line(x,y)
+end_pos- End position of the line
+Draw a Circle
+Below are the functions, which are used to draw a circle on the given surface.
+
+circle(surface, color, center, radius)
+circle(surface, color, center, radius, width=0)
+Parameters:
+
+surface - Screen to draw on.
+color- This argument is used to color the given shape. The alpha value is optional if we are using a tuple.
+center - The center point of the circle as a sequence of two int/float, e.g. (x,y)
+radius(int or float)- radius of the circle, measured from the center parameter, if the radius is zero, then it will only draw the center pixel.
+Draw an elliptical arc
+Below functions are used to draw an elliptical arc on the given surface.
+
+?  arc(surface, color, rect, start_angle, stop_angle)   
+?  arc(surface, color, rect, start_angle, stop_angle, width=1)  
+Parameters:
+
+surface - Screen to draw on.
+color- This argument is used to color the given shape. The alpha value is optional if we are using a tuple.
+rect(Rect)- Draw rectangle, position, and dimensions.
+start_angle- Start angle of the arc in radians.
+stop_angle- Stop angle of the arc in radians.
+There are three conditions for start_angle and stop_angle parameter:
+
+If start_angle < stop_angle then the arc will be drawn in a counter-clock direction from the start_angle to end_angle.
+If start_angle>stop_angle then tau(tau=2*pi) will be added to the stop angle.
+If start_angle==stop_angle, nothing will be drawn.
+Let's consider an example:
+
+import pygame  
+from math import pi  
+pygame.init()  
+# size variable is using for set screen size  
+size = [400, 300]  
+screen = pygame.display.set_mode(size)  
+pygame.display.set_caption("Example program to draw geometry")  
+# done variable is using as flag   
+done = False  
+clock = pygame.time.Clock()  
+while not done:  
+    # clock.tick() limits the while loop to a max of 10 times per second.  
+        clock.tick(10)  
+  
+    for event in pygame.event.get():  # User did something  
+        if event.type == pygame.QUIT:  # If user clicked on close symbol   
+            done = True  # done variable that we are complete, so we exit this loop  
+  
+    # All drawing code occurs after the for loop and but  
+    # inside the main while done==False loop.  
+  
+    # Clear the default screen background and set the white screen background  
+    screen.fill((0, 0, 0))  
+  
+    # Draw on the screen a green line which is 5 pixels wide.  
+    pygame.draw.line(screen, (0, 255, 0), [0, 0], [50, 30], 5)  
+    # Draw on the screen a green line which is 5 pixels wide.  
+    pygame.draw.lines(screen, (0, 0, 0), False, [[0, 80], [50, 90], [200, 80], [220, 30]], 5)  
+  
+    # Draw a rectangle outline  
+    pygame.draw.rect(screen, (0, 0, 0), [75, 10, 50, 20], 2)  
+  
+    # Draw a solid rectangle  
+    pygame.draw.rect(screen, (0, 0, 0), [150, 10, 50, 20])  
+  
+    # This draw an ellipse outline, using a rectangle as the outside boundaries  
+    pygame.draw.ellipse(screen, (255, 0, 0), [225, 10, 50, 20], 2)  
+  
+    # This draw a solid ellipse, using a rectangle as the outside boundaries  
+    pygame.draw.ellipse(screen, (255, 0, 0), [300, 10, 50, 20])  
+  
+    # Draw a triangle using the polygon function  
+    pygame.draw.polygon(screen, (0, 0, 0), [[100, 100], [0, 200], [200, 200]], 5)  
+  
+    # This draw a circle  
+    pygame.draw.circle(screen, (0, 0, 255), [60, 250], 40)  
+  
+    # This draw an arc  
+    pygame.draw.arc(screen, (0, 0, 0), [210, 75, 150, 125], 0, pi / 2, 2)  
+  
+    # This function must write after all the other drawing commands.  
+    pygame.display.flip()  
+  
+# Quite the execution when clicking on close  
+pygame.quit()  
+Output:
+
+Pygame Draw
+Pygame Text and Font
+Pygame also provides facilities to render the font and text. We can load fonts from the system by using the pygame.font.SysFont() function. Pygame comes with the built-in default font which can be accessed by passing the font name or None. There are many functions to help to work with the font.
+
+The font objects are created with pygame.font.Font().The actual font objects do most of the works done with fonts. Font objects are generally used to render the text into new Surface objects. Few important font functions are the following:
+
+render()
+
+This function is used to draw text on a new Surface. Pygame has no facility to draw text on the existing Surface. This creates a new Surface with the specified text render on it. The syntax is the following:
+
+render(text, antialias, color, background=None)  
+size()
+
+This function is used to determine the number of space or positioning needed to render text. It can also be used for word-wrapping and other layout effects. The syntax is the following:
+
+size(bool)  
+set_bold()
+
+This function is used for bold rending of text. The syntax is following:
+
+set_bold(bool)  
+Let's consider the following example:
+
+import pygame  
+pygame.init()  
+screen = pygame.display.set_mode((640, 480))  
+done = False  
+  
+#load the fonts  
+font = pygame.font.SysFont("Times new Roman", 72)  
+# Render the text in new surface  
+text = font.render("Hello, Pygame", True, (158, 16, 16))  
+while not done:  
+    for event in pygame.event.get():  
+        if event.type == pygame.QUIT:  
+            done = True  
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:  
+            done = True  
+    screen.fill((255, 255, 255))  
+    #We will discuss blit() in the next topic  
+    screen.blit(text,(320 - text.get_width() // 2, 240 - text.get_height() // 2))  
+  
+    pygame.display.flip()  
+Output:
+
+Pygame Text and Font
+Note- It is necessary to remember that the certain font must be installed on the user's computer. If you don't know whether fonts install or not, pygame has the following function to enumerate all the fonts available on the machine:
+all_font = pygame.font.get_fonts()  
+There is another function to instantiate the default system font:
+
+font = pygame.font.Font(None,size)  
+Using any above functions, we can work with the attractive font in game.
+
+Pygame Sprite and Collision detection
+A pygame sprite is a two-dimensional image that is part of the large graphical scene. Usually, a sprite will be some object in the scene.
+
+One of the most advantages of working with sprites is the ability to work with them in groups. We can easily move and draw all the sprites with the one command if they are in the group.
+
+The Sprite module contains the various simple classes to be used within the games. It is optional to use Sprite classes and different group classes when using pygame.
+
+Pygame provides sprites and sprite groups that help for collision detection. Collision detection is the process when two objects on the screen collide each other. For example, if a player is hit by the enemy's bullet, then it may lose a life or, the program need to know when the player touches a coin so that they automatically picked up.
+
+Let's consider the following example:
+
+import pygame  
+import sys  
+#Sprite class   
+class Sprite(pygame.sprite.Sprite):  
+    def __init__(self, pos):  
+        pygame.sprite.Sprite.__init__(self)  
+        self.image = pygame.Surface([20, 20])  
+        self.image.fill((255, 0, 255))  
+        self.rect = self.image.get_rect()  
+        self.rect.center = pos  
+def main():  
+    pygame.init()  
+    clock = pygame.time.Clock()  
+    fps = 50  
+    bg = [0, 0, 0]  
+    size =[300, 300]  
+    screen = pygame.display.set_mode(size)  
+    player = Sprite([40, 50])  
+    # Define keys for player movement  
+    player.move = [pygame.K_LEFT, pygame.K_RIGHT, pygame.K_UP, pygame.K_DOWN]  
+    player.vx = 5  
+    player.vy = 5  
+  
+    wall = Sprite([100, 60])  
+  
+    wall_group = pygame.sprite.Group()  
+    wall_group.add(wall)  
+  
+    player_group = pygame.sprite.Group()  
+    player_group.add(player)  
+  
+    while True:  
+        for event in pygame.event.get():  
+            if event.type == pygame.QUIT:  
+                return False  
+        key = pygame.key.get_pressed()  
+        for i in range(2):  
+            if key[player.move[i]]:  
+                player.rect.x += player.vx * [-1, 1][i]  
+  
+        for i in range(2):  
+            if key[player.move[2:4][i]]:  
+                player.rect.y += player.vy * [-1, 1][i]  
+        screen.fill(bg)  
+        # first parameter takes a single sprite  
+        # second parameter takes sprite groups  
+        # third parameter is a kill command if true  
+        hit = pygame.sprite.spritecollide(player, wall_group, True)  
+        if hit:  
+        # if collision is detected call a function to destroy  
+            # rect  
+            player.image.fill((255, 255, 255))  
+        player_group.draw(screen)  
+        wall_group.draw(screen)  
+        pygame.display.update()  
+        clock.tick(fps)  
+    pygame.quit()  
+    sys.exit  
+if __name__ == '__main__':  
+Output:
+
+Pygame Sprite and Collision detection
+After pressing the arrow keys, one rectangle will collide with another rectangle then output is:
+
+Pygame Sprite and Collision detection
+Pyglet
+Python provide another game library named pyglet which is cross-platform windowing and multimedia library for Python. It is used to developing games and other visually rich applications. It supports user interface event handling, windowing, OpenGL graphics, loading images and videos, and playing sounds and music.
+
+Few features of pyglet are the following:
+
+No external installation requirements or dependencies.
+Take benefit of multiple windows and multi-monitor.
+It can load images, sound, music, and video in any format.
+Pyglet is provided under the BSD open-source license.
+It supports both Python 2 and 3.
+Installation of pyglet is simple; it can be installed by typing the following command.
+
+
+pip install pyglet  
+Consider the following example.
+
+import pyglet  
+window = pyglet.window.Window()  
+lable = pyglet.text.Label('Hello world', font_name='Times New Roman', font_size=36,  
+                          x= window.width//2,y=window.height//2,anchor_x='center', anchor_y='center')  
+@window.event  
+def on_draw():  
+    window.clear()  
+    lable.draw()  
+pyglet.app.run()  
+Output:
+
+Pyglet
+Comparison between Pygame and Pyglet
+Pyglet	Pygame
+3d support
+Since pyglet is so firmly merged with OpenGL. It allows the support of drawing in 3D.	Easy Python syntax
+Pygame uses Python as its scripting language. Python is widely treated one of the most natural languages to grasp even for beginners.
+Cross-platform
+It can work with Window, Linux, and OS X.	Usage API
+The API is very straightforward.
+Written in pure Python
+It can be compiled using the other Python interpreters.	Best canvas system
+Pygame provides a drawing system that allows the user to create and draw an unlimited number of the canvas.
+Less Popularity
+Pyglet is less popularee because it has small community support.	More popular
+Pygame is more popular than the pyglet.
+In this tutorial, we have discussed the simple game development programming approach by installing the open-source module pygame into Python 3 programming environment.
+
+
+
+
+
+
+Youtube For Videos Join Our Youtube Channel: Join Now
+Fee
