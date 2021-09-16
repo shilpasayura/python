@@ -47,7 +47,9 @@ def main():
                         ball.speed[1] = -2
                         num_successful_throws += 1
                         break
-
+            if event.type == pygame.QUIT:
+                pygame.quit()
+				
         if num_successful_throws > 3:
             ball = Ball()
             balls.append(ball)

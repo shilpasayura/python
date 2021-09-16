@@ -1,4 +1,3 @@
-# Import pygame
 import pygame
 
 # Initialise pygame
@@ -27,15 +26,15 @@ image = pygame.transform.scale(image, DEFAULT_IMAGE_SIZE)
 DEFAULT_IMAGE_POSITION = (0,0)
 
 # Prepare loop condition
-running = False
+running = True
 
 # Event loop
-while not running:
+while running:
 
 	# Close window event
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
-			running = True
+			running = False
 
 	# Background Color
 	screen.fill((0, 0, 0))

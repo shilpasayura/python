@@ -10,7 +10,7 @@ white = (255,255,255)
 red = (255,0,0)
 
 gameDisplay = pygame.display.set_mode((display_width,display_height))
-pygame.display.set_caption('A bit Racey')
+pygame.display.set_caption('Image')
 clock = pygame.time.Clock()
 
 carImg = pygame.image.load('racecar.png')

@@ -34,6 +34,10 @@ def main():
                 if ball.rect.collidepoint(pygame.mouse.get_pos()):
                     ball.speed[0] = random.uniform(-4, 4)
                     ball.speed[1] = -2
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+				
         screen.fill(BACKGROUND)
         screen.blit(ball.image, ball.rect)
         ball.update()
