@@ -14,7 +14,7 @@ FPS=30
 
 size = (window_width, window_height)
 screen = pygame.display.set_mode(size)
-
+bgx_no=0
 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
@@ -27,17 +27,21 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         # center the sprite on the screen
         self.rect.center = (window_width/2,275)
+        
 
     def update(self):
-        self.rect.x += 5
+               
+        #self.rect.x += 5
+        self.rect.x -= 5
 
         if self.rect.left > window_width:
             self.rect.right = 0
             self.rect.x =-player_width
-
+        
         if self.rect.right < 0:
             self.rect.left = window_width
             self.rect.x =window_width
+        
             
     
 pygame.display.set_caption("Hello Background") 
@@ -45,7 +49,14 @@ run = True
 
 clock = pygame.time.Clock()
 
-background_image = pygame.image.load("bg0.jpg").convert()
+#background_image = pygame.image.load("bg0.jpg").convert()
+#background_images=["bg0.jpg", "bg1.jpg", "bg2.jpg", "bg3.jpg"]
+bgx=[]
+for i in range(4):
+    bg="bg"+str(i)+ ".jpg"
+    bgx.append(pygame.image.load(bg).convert())
+    
+
 
 all_sprites = pygame.sprite.Group()
 player = Player()
@@ -61,7 +72,19 @@ while run:
     #keys
             
     all_sprites.update()
-    screen.blit(background_image, [0, 0])
+    if player.rect.x >=window_width :
+        bgx_no +=1
+        if bgx_no > 3:
+            bgx_no=0
+
+    if player.rect.x <=0 :
+        bgx_no -=1
+        if bgx_no < 0:
+            bgx_no=3
+            
+    print(bgx_no)
+    
+    screen.blit(bgx[bgx_no], [0, 0])
     all_sprites.draw(screen)
     # Update
     
