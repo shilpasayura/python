@@ -19,6 +19,9 @@ t.bgcolor('#99ffbb')
 ball = vector(-200, -200)
 speed = vector(0, 0)
 targets = []
+#print (ball[0], ball[1])
+
+
     # Functions
 # Respond to screen tap
 def tap(x, y):
