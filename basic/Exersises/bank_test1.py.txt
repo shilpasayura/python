@@ -1,0 +1,14 @@
+﻿# BankAccount Example
+# test1.py file
+# _balance is private.  It cannot be used
+# directly in this test file.
+
+from bankaccount import BankAccount
+
+acct = BankAccount(23456, "Collins", "356/573-3789")
+print(acct)
+acct.deposit(2000.0)
+acct.withdraw(1500.0)
+print(acct.check_balance( ))
+acct.withdraw(1000.0)
+print(acct.check_balance( ))

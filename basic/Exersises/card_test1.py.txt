@@ -1,0 +1,12 @@
+﻿# Card Example
+# test1.py file
+
+from card import Card
+
+c1 = Card(8, "D")
+print(c1.rank, c1.suit, c1.color( ))
+print(c1)
+
+c2 = Card(12, "S")
+print(c2.rank, c2.suit, c2.color( ))
+print(c2)

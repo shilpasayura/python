@@ -1,0 +1,26 @@
+﻿# BankAccount Example
+# test2.py file
+
+from bankaccount import BankAccount
+
+acct1 = BankAccount(23456, "Collins", "356/573-3789")
+acct2 = BankAccount(45678, "Zapata", "632/384-4087")
+print(acct1)
+print(acct2)
+
+# Deposit values monthly for one year:
+for i in range(0, 12):
+    acct1.deposit(600.0)
+    acct2.deposit(800.0)
+
+print(acct1.check_balance( ), \
+      acct2.check_balance( ))
+
+if acct2.check_balance( ) > 8000.0:
+    acct1.withdraw(200.0)
+
+if acct1.check_balance( ) > 8000.0:
+    acct2.withdraw(200.0)
+
+print(acct1.check_balance( ), \
+      acct2.check_balance( ))

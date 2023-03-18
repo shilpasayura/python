@@ -1,0 +1,19 @@
+﻿# VendingMachine Example
+
+# Assumptions for a VendingMachine object vm.
+# 1. vm only dispenses one type of candy bar.
+# 2. A candy bar costs 75 cents (3 quarters).
+# 3. If vm runs out of candy bars, throw it away
+#    and create another VendingMachine object.
+# 4. If you deposit too many quarters, you lose
+#    the excess quarters.
+
+from vendingmachine import VendingMachine
+
+vm = VendingMachine(4)
+for j in range(0, 5):
+    for i in range(0, 3):
+        vm.accept_quarter( )
+    vm.dispense_candy_bar( )
+    print(vm)
+    

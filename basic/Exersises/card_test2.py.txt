@@ -1,0 +1,23 @@
+﻿# Card Example
+# test2.py file
+
+from card import Card
+from random import shuffle
+
+# Create empty array to hold 52 cards
+cards = [ ]
+
+for suit in ["C", "D", "H", "S"]:
+    for rank in range(2, 15):
+        cards.append(Card(rank, suit))
+
+# Print unshuffled cards.
+for c in cards:
+    print(c, end=" ")
+print("\n")
+
+shuffle(cards)
+
+# Print shuffled cards.
+for c in cards:
+    print(c, end=" ")
