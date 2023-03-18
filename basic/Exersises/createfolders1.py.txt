@@ -1,0 +1,9 @@
+﻿# CreateFolders1 Example
+# Create folders from list of folder names.
+
+import os
+
+folders = ["barcelona", "munich", "paris", "zurich"]
+for name in folders:
+    print("Creating folder", name)
+    os.mkdir(name)

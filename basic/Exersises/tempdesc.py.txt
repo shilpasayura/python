@@ -1,0 +1,24 @@
+﻿# TempDesc Example
+# Classify a Fahrenheit temperature as cold, chilly, perfect, warm, or hot. 
+
+# Input temperature.
+temperature = float(input("Enter a Fahrenheit temperature: "))
+
+# Use if..elif statement to find descriptor.
+if temperature < 32:
+  descriptor = "cold"
+  
+elif temperature < 60:
+  descriptor = "chilly"
+  
+elif temperature < 75:
+  descriptor = "perfect"
+  
+elif temperature < 85:
+  descriptor = "warm"
+  
+else:
+  descriptor = "hot"
+
+# Show descriptor
+print("The temperature of", temperature, "degrees is", descriptor + ".")

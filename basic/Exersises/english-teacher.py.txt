@@ -1,0 +1,23 @@
+﻿# EnglishTeacher Example
+# Mrs. Gabbard is a strict seventh grade teacher that doesn't 
+#    tolerate sloppy spelling. 
+# Adapted from the Chris Pine textbook Learn to Program, page 50.
+
+# Input name
+print("Hello.  Welcome to seventh grade English.")
+print("My name is Mrs. Gabbard.")
+name = input("Your name is ...? ")
+
+if name == name.capitalize( ):
+    print(f"Please take a seat {name}.")
+  
+else:
+    print(f"{name}?  You mean {name.capitalize( )}, right")
+    print("Do you even know how to spell your name?", end=" ")
+    reply = input( )
+
+    if reply.lower( ) == "yes":
+        print("Hmmph!  Well, sit down and don't be so sloppy next time.")
+        
+    else:
+        print("I think you should go back to grade school.")

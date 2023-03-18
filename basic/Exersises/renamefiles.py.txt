@@ -1,0 +1,19 @@
+﻿# RenameFiles1 Example
+# Rename files based on a list of original and new file names.
+# In the same folder that contains the script renamefiles.py, 
+# create a folder named originals; in this originals folder
+# copy these four files: one.txt, two.txt, three.txt, and 
+# four.txt. 
+
+import os
+
+filenames = ['one,barcelona', 'two,paris', \
+    'three,munich', 'four,zurich']
+
+for pair in filenames:
+    fields = pair.split(",")
+    original_name = fields[0].strip( ) + ".txt"
+    new_name = fields[1].strip( ) + ".txt"
+    print("Renaming", original_name, \
+        "as", new_name + ".")
+    os.rename(original_name, new_name)

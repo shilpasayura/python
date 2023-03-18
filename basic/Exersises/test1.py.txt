@@ -1,0 +1,10 @@
+﻿# Pet Example
+# test1.py file
+
+from pet import Pet
+
+p = Pet("Molly", "Dog", 2015)
+print(p)
+print(p.vaccinated)
+p.vaccinate( )
+print(p.vaccinated)

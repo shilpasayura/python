@@ -1,0 +1,18 @@
+﻿# CoinFlip Example
+# Show random output for simulated coin flip.
+
+import random
+
+# Generate a random number in the range(0, 2) = [0, 1].
+side_number = random.randrange(0, 2)
+
+# Must initialize side because it is a local variable
+# in the bodies of the if and else statements.
+side = ""
+if side_number == 0:
+    side = "Tail"
+                  
+else:
+    side = "Head"
+
+print("Result of coin flip:", side)

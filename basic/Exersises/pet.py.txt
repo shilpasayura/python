@@ -1,0 +1,19 @@
+﻿# Pet Example
+# pet.py file
+
+class Pet:
+
+    def __init__(self, the_name, the_animal_type, \
+        the_birth_year):
+        self.name = the_name
+        self.animal_type = the_animal_type
+        self.birth_year = the_birth_year
+        self.vaccinated = False
+
+    def __str__(self):
+        output = self.name + " " + self.animal_type + \
+            " " + str(self.birth_year)
+        return output
+        
+    def vaccinate(self):
+        self.vaccinated = True

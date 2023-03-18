@@ -1,0 +1,14 @@
+﻿# CreateFolders2 Example
+# Create folders from folder names read from file.
+
+import os
+
+fin = open("foldernames.txt", "r")
+line = fin.readline( )
+while line != "":
+    name = line.strip( )
+    print("Creating folder", name)
+    os.mkdir(name)
+    line = fin.readline( )
+    
+fin.close( )

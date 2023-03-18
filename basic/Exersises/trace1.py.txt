@@ -1,0 +1,14 @@
+﻿# Trace1 Exampl
+# Perform variable trace and predict output. 
+
+a = 3
+b = 7
+c = 5
+a = 2 * a + 2 * b + c
+b = a + c
+c = 2 * c + 1
+a = a + 2
+b = b + 3
+c = c + 4 
+
+print("Output:", a, b, c)

@@ -1,0 +1,23 @@
+﻿# Person Example
+# Create a person class with instance variables name, 
+# gender, age and method have_birthday.
+
+class Person:
+    'Represents a person with a name, gender, and age'
+
+    # __init__ method is called whenever a new Person 
+    # object is created.
+    def __init__(self, the_name, the_gender, the_age):
+        self.name = the_name
+        self.gender = the_gender
+        self.age = the_age
+
+    # Regular method.
+    def have_birthday(self):
+        self.age += 1
+
+    # Define return value for str method.
+    def __str__(self):
+        output = f"{self.name};{self.gender};{self.age}"
+        return output 
+        

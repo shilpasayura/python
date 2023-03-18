@@ -1,0 +1,14 @@
+﻿# Overtime Example
+# Input hours worked and hourly wage; 
+# compute total wages.
+# Hours over 40 are paid at time and a half.
+
+hourly_wage = float(input("Enter the hourly wage:")
+hours_worked = float(input("Enter hours worked:")
+
+if hourly_wage > 40:
+    total_wage = 40 * hourly_wage + (hours_worked - 40) * hourly_wage
+else:
+    total_wage = hours_worked * hourly_wage
+    
+print("Total Wages: ", total_wages)

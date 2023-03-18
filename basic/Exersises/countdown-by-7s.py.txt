@@ -1,0 +1,11 @@
+﻿# CountDownBy7s Example
+# Count from 1000 to 1 backwards by sevens. 
+
+# Set initial value
+n = 1000
+
+# Keep counting while condition is true
+while n >= 1:
+    print(n)
+    n = n - 7
+  

@@ -1,0 +1,22 @@
+﻿# Trace3 Example
+# Perform variable trace and predict output. 
+
+a = 3
+b = 5
+c = 2
+
+while a + b + c < 100:
+    a = a + 4
+    b = 2 * b + 1
+    c = 3 * c
+    print(f"{a} {b} {c}")
+
+print(f"{a + b + c}")
+
+# Variable Trace:                Output:
+#   a     b     c   a+b+c        7 11 6
+# -----+-----+-----+-----        11 23 18
+#   3     5     2    10          15 47 54
+#   7    11     6    24          116
+#  11    23    18    52
+#  15    47    54   116 

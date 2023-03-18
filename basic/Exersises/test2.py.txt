@@ -1,0 +1,25 @@
+﻿# Pet Example
+# test2.py file
+
+from pet import Pet
+
+# Create empty array to hold pet objects.
+pets = [ ]
+
+p = Pet("Molly", "Dog", 2015)
+pets.append(p)
+p = Pet("Gracie", "Cat", 2014)
+pets.append(p)
+p = Pet("Cottontail", "Rabbit", 2017)
+pets.append(p)
+p = Pet("Fred", "Guinea Pig", 2018)
+pets.append(p)
+
+for pet in pets:
+    print(pet)
+
+for pet in pets:
+    pet.vaccinate( )
+
+for pet in pets:
+    print(pet.vaccinated, end=" ")

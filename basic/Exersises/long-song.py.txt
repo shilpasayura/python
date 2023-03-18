@@ -1,0 +1,13 @@
+﻿# LongSong Example
+# Display all verses of the song
+# "99 Bottles of Beer on the Wall".
+
+# Set initial value
+verse_number = 99
+
+while verse_number > 0:
+    print(verse_number, "bottles of beer on the wall,")
+    print(verse_number, "bottles of beer.")
+    print("Take one down and pass it around")
+    verse_number = verse_number - 1
+    print(verse_number, "bottles of beer on the wall.\n")

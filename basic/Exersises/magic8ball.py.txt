@@ -1,0 +1,28 @@
+﻿# Magic8Ball Example
+# Show a random response from a Magic Eight
+# Ball fortune telling device. 
+
+import random
+
+ans_num = random.randrange(0, 6)
+
+ans = ""
+if ans_num == 0:
+  ans = "Yes -- definitely"
+  
+elif ans_num == 1:
+  ans = "Most likely"
+  
+elif ans_num == 2:
+  ans = "Reply hazy, try again"
+  
+elif ans_num == 3:
+  ans = "Cannot predict now"
+  
+elif ans_num == 4:
+  ans = "Don't count on it"
+  
+else:
+  ans = "Very doubtful"
+   
+print("Magic eight ball answer: ", ans)

@@ -1,0 +1,10 @@
+﻿# Distance Example
+# Compute distance "as the crow flies in blocks 
+# from a location to city center.
+
+import math
+
+x = float(input("Enter x-coordinate:")
+y = float(input("Enter y-coordinate:")
+dist = math.sqrt(x ** 2 + y ** 2)
+print("Distance:", dist)

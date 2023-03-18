@@ -1,0 +1,55 @@
+﻿# LetterHPpm Example
+# Draw the letter H in a PPM file.
+# Use light blue (230,230,255) for background color.
+# Use magenta (255,0,255) for foreground color.
+
+# Open output file
+fout = open("h.ppm", "w") 
+
+def draw_background_pixel( ):
+    fout.write("230 230 255 ")
+
+def draw_foreground_pixel( ):
+    fout.write("255 0 255  ")
+
+def write_graphics_file_header( ): 
+    fout.write("P3 200 200 255\n")
+
+def draw_space( ):
+    for y in range(0, 50):
+        for x in range(0, 200):
+            draw_background_pixel( )
+    fout.write("\n")
+
+def draw_2_vertical_bars( ):
+    for y in range(50, 95):
+        for x in range(0, 80):
+            draw_background_pixel( )
+        for x in range(80, 90):
+            draw_foreground_pixel( )
+        for x in range(90, 110):
+            draw_background_pixel( )
+        for x in range(110, 120):
+            draw_foreground_pixel( )
+        for x in range(120, 200):
+            draw_background_pixel( )
+        fout.write("\n")
+
+def draw_center_bar( ):
+    for y in range(95, 105):
+        for x in range(0, 80):
+            draw_background_pixel( )
+        for x in range(80, 120):
+            draw_foreground_pixel( )
+        for x in range(120, 200):
+            draw_background_pixel( )
+        fout.write("\n")
+	
+write_graphics_file_header( )
+draw_space( )
+draw_2_vertical_bars( )
+draw_center_bar( )
+draw_2_vertical_bars( )
+draw_space( )
+
+fout.close( )

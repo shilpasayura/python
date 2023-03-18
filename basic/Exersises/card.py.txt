@@ -1,0 +1,22 @@
+﻿# Card Example
+# card.py file
+
+class Card:
+
+    def __init__(self, the_rank, the_suit):
+        self.rank = the_rank
+        self.suit = the_suit
+
+    def color(self):
+        dict = { "C": "black", "D": "red", \
+                 "H": "red", "S": "black" }
+        return dict[self.suit]
+
+    def __str__(self):
+        # dict translates the rank into a user
+        # friendly output symbol.
+        dict = {0: "", 1: "", 2: "2", 3: "3", \
+                4: "4", 5: "5", 6: "6", 7: "7", \
+                8: "8", 9: "9", 10: "10", \
+               11: "J", 12: "Q", 13: "K", 14: "A"}
+        return dict[self.rank] + self.suit;

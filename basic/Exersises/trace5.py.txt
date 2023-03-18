@@ -1,0 +1,10 @@
+﻿# Trace5 Example
+# Construct the variable trace and
+# predict the output
+
+a = 3
+b = 7
+c = 4
+f = a + c >= b
+g = 2 * c != 2 * c
+print(f"{f} {g}")

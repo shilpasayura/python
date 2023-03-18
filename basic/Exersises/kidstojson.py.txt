@@ -1,0 +1,28 @@
+﻿# KidsJson Example
+# Convert data in a comma delimited text file to JSON
+
+import json
+
+# Open file
+fin = open("kids.txt", "r")
+
+# Throw away first line.
+fin.readline( )
+
+arr = [ ]
+line = fin.readline( )
+while line != "":
+    fields = line.split(" ")
+    name = fields[0]
+    gender = fields[1]
+    age = int(fields[2])
+    kid_dict = { 'name' : name, 'gender' : gender, 'age' : age }
+    arr.append(kid_dict)
+    line = fin.readline( )
+
+fin.close( )
+
+json_string = json.dumps(arr)
+fout = open("kids.json", "w")
+fout.write(json_string)
+fout.close( )

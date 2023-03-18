@@ -1,0 +1,29 @@
+﻿# MakeBackups Example
+# Makd backup files of all files in a folder.
+# The module name shutil means "shell utilities."
+# In the same folder that contains the script makebackups.py, 
+# create a folder named originals; in this originals folder 
+# copy these four files: barcelona.txt, munich.txt, paris.txt, 
+# and zurich.txt.
+
+import os
+import shutil
+
+# Obtain list of files in original_files folder.
+original_files = os.listdir("originals")
+print("Original files:", original_files)
+
+# Create folder backup_files.
+backup_files = os.mkdir("backup_files")
+print("Create folder backup_files.")
+
+for file in original_files:
+
+    # Create new file name.
+    pieces = file.split(".")
+    new_file = pieces[0] + "-backup." + pieces[1]
+
+    # Create backup files in backup_files folder.
+    print("Create backup file", new_file)
+    shutil.copyfile("originals/" + file, \
+        "backup_files/" + new_file)

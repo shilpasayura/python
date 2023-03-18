@@ -1,0 +1,12 @@
+﻿# Person Example
+# Test Person class using traditional tests
+
+# Import Person class from module person 
+# in file person.py.
+from person import Person
+
+p = Person("Alice", "F", 11)
+print(str(p))
+print(p.name, p.gender, p.age)
+p.have_birthday( )
+print(p.age)

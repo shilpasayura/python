@@ -1,0 +1,23 @@
+﻿# MySqrt Example
+# Compute the square root of a float with a user-defined method.  
+# You don't have to understand how the method works to use it.  
+# You only need to know the inputs the the expected output of the method.  
+# This is an example of encapsulation.
+
+def my_sqrt(x):
+
+    EPSILON = 1.0e-13
+    guess1 = 1
+    guess2 = x
+    count = 1
+    while abs(guess1 - guess2) > EPSILON and count <= 10:
+        temp = (guess1 + guess2) / 2.0
+        guess1 = x / temp
+        guess2 = temp
+        count += 1
+   
+    return guess1
+
+# Compare my_sqrt result to builtin method result.
+import math
+print(my_sqrt(2.0), " ", math.sqrt(2.0))

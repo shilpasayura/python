@@ -1,0 +1,14 @@
+﻿# Hailstone Example
+# A Hailstone sequence is a sequence produces by the following
+# script, given a positive integer input.  Most mathematicians 
+# believe that the Hailstone sequence eventually reaches 1 for 
+# all initial values n, although they have not been able prove this.
+
+n = int(input("Enter the initial value for the Hailstone sequence: "))
+
+while n != 1:
+    print(f"{n} ", end="")
+    if n % 2 == 0:
+        n = n // 2
+    else:
+        n = 3 * n + 1

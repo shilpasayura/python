@@ -1,0 +1,38 @@
+﻿# LetterZ-2 Example
+# Draw the letter Z using asterisks
+# using user defined methods.
+
+# In these three user defined methods,
+# f is the file object.
+def draw_horizontal_line(f):
+    for y in range(0, 3):
+        for x in range(0, 20):
+            f.write("*")
+        f.write("\n")
+
+def draw_diagonal_line(f):  
+    for y in range(0, 13):
+        for x in range(0, 13 - y):
+            f.write(" ")
+        for x in range(0, 7):
+            f.write("*")
+        fout.write("\n")
+
+def draw_letter_z(f):
+    # Draw horizontal line.
+    draw_horizontal_line(f)
+
+    # Draw diagonal
+    draw_diagonal_line(f)
+
+    # Draw horizontal line.
+    draw_horizontal_line(f)
+    
+# Open output file.
+fout = open("z.txt", "w")
+
+# Invoke user defined method.
+draw_letter_z(fout)
+
+# Close output file
+fout.close( )

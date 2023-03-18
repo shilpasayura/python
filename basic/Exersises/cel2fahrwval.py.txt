@@ -1,0 +1,17 @@
+﻿# Cel2FahrWithValidation Example
+# Convert Celsius temperature to Fahrenheit.
+# Validate the input to make sure that it is greater
+# than absolute zero (-273 deg F).
+
+# Import sys module to be able to use sys.exit( ).
+import sys
+
+cel = float(input("Enter a Celsius temperature: "))
+
+# Validate input.
+if cel < 273.0:
+    print("Celsius temperature must be greater or equal to absolute zero.")
+    sys.exit( )
+    
+fahr = 9 * cel / 5 + 32
+print("Fahrenheit temperature:", fahr)

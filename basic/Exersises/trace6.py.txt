@@ -1,0 +1,11 @@
+﻿# Trace6 Example
+# Construct the variable trace and
+# predict the output
+
+a = 3
+b = 7
+c = 2
+
+f = False or a + c < b - 1 and not(2 * a <= b)
+g = True or False
+print(f"{f} {g} {True and False}")

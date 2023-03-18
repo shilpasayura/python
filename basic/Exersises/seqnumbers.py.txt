@@ -1,0 +1,13 @@
+﻿# SequentialFileNames Example
+# Add sequence numbers to filenames.
+
+import os
+
+filenames = ['barcelona.txt', 'munich.txt', \
+    'paris.txt', 'zurich.txt']
+
+sequence_number = 1
+for f in filenames:
+    prefix = "{:03d}".format(sequence_number)
+    print(prefix + "-" + f)
+    sequence_number += 1

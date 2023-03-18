@@ -1,0 +1,85 @@
+﻿# KidsJson Example
+# Answer questions from data in a JSON file.
+# Here are the questions:
+# 1. What is the average age of all the kids?
+# 2. What is the average number of letters in the girls names?
+# 3. How many kids are there of each gender?
+# 4. Who is the oldest boy and what is his name?
+# 5. Who is the second oldest girl and what is her name?
+
+import json
+
+fin = open("kids.json", "r")
+kids_dict_array = json.loads(fin.read( ))
+# print(kids_dict_array)
+fin.close( )
+
+# Question 2a.
+total = 0.0
+count = 0
+for d in kids_dict_array:
+    total += d["age"]
+    count += 1
+
+print("Average age of all kids: ", round(total / count, 2))
+# Output: 8.92.
+
+# Question 2b.
+total = 0.0
+count = 0
+for d in kids_dict_array:
+    if d["gender"] == "F":
+        total += len(d["name"])
+        count += 1
+
+print("Average age length of girls names: ")
+print(round(total / count, 2))
+# Output: 5.86.
+
+# Question 2c.
+boys_count = 0
+girls_count = 0
+for d in kids_dict_array:
+    if d["gender"] == "F":
+        boys_count += 1
+    else:
+        girls_count += 1
+
+print(f"Girls count: {girls_count}, boys count: {boys_count}")
+# Output: Girls count: 99, boys count: 97
+
+# Question 2d.
+oldest_boy = "abc"     # <-- dummy name
+age_of_oldest_boy = -1 # <-- age younger than any actual age.
+for d in kids_dict_array:
+    if d["gender"] == "M" and d["age"] > age_of_oldest_boy:
+        age_of_oldest_boy = d["age"]
+        oldest_boy = d["name"]
+        
+
+print(f"Oldest boy is {oldest_boy} at age {age_of_oldest_boy}")
+# Output: Oldest boy is Danny at age 16
+
+# Question 2e.
+oldest_girl = "abc"
+second_oldest_girl = "abc"
+age_oldest_girl = -1
+age_2nd_oldest_girl = -1
+for d in kids_dict_array:
+    
+    if d["gender"] == "F":
+
+        if d["age"] > age_oldest_girl:
+            age_2nd_oldest_girl = age_oldest_girl
+            second_oldest_girl = oldest_girl
+            age_oldest_girl = d["age"]
+            oldest_girl = d["name"]
+
+        elif d["age"] > age_2nd_oldest_girl:
+            age_2nd_oldest_girl = d["age"]
+            second_oldest_girl = d["name"]
+
+print(f"Second oldest girl is {second_oldest_girl}", end=" ")
+print(f"at age {age_2nd_oldest_girl}.")
+# print(oldest_girl, age_oldest_girl)
+

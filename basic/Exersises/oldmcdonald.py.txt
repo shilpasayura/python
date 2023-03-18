@@ -1,0 +1,25 @@
+﻿# OldMacDonald Example
+# Use methods to display the song OldMacDonald Had a Farm.
+# This is an example of code reuse.
+
+def show_exclamation( ):
+    print("Ee, aye, ee, aye, oh!")
+
+def show_refrain( ):
+    print("Old MacDonald had a farm.")
+    show_exclamation( )
+
+def show_song(animal, sound):
+    show_refrain( )
+    print("And on his farm he has a " + animal + ".")
+    show_exclamation( )
+    print("With a " + sound + " " + sound + " here,")
+    print("And a " + sound + " " + sound + " there,")
+    print("Here a " + sound + ", there a " + sound + ",")
+    print("Everywhere a " + sound + " " + sound + ",")
+    show_refrain ( )
+    print( )
+
+# Test method.
+show_song("cow", "moo")
+show_song("cat", "meow")

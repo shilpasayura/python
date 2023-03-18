@@ -1,0 +1,45 @@
+﻿# Source code for ChineseHoroscope Example
+# Obtain Chinese Horoscope animal based on year of birth. 
+
+# Input year.
+year = int(input("Enter the year of your birth: "))
+
+# Determine Chinese Zodiac Animal
+if year % 12 == 0:
+    animal = "monkey"
+  
+elif year % 12 == 1:
+    animal = "rooster"
+  
+elif year % 12 == 2:
+    animal = "dog"
+  
+elif year % 12 == 3:
+    animal = "pig"
+  
+elif year % 12 == 4:
+    animal = "rat"
+  
+elif year % 12 == 5:
+    animal = "ox"
+  
+elif year % 12 == 6:
+    animal = "tiger"
+  
+elif year % 12 == 7:
+    animal = "rabbit"
+  
+elif year % 12 == 8:
+    animal = "dragon"
+  
+elif year % 12 == 9:
+    animal = "snake"
+  
+elif year % 12 == 10:
+    animal = "horse"
+  
+else:
+    animal = "sheep"
+
+# Show output
+print("Chinese zodiac animal for" , year, "is the", animal + ".")

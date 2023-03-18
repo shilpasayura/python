@@ -1,0 +1,22 @@
+﻿# Trace2 Example
+# Perform variable trace and predict output. 
+
+a = 2
+b = 5
+if a + b <= 3:
+    c = -1
+
+elif a + b <= 6:
+    c = 0
+
+else:
+    c = 1
+
+print(f"Output: {a + b} {c}")
+
+# Trace:   a    b    c   Output:  Output: 7 1
+#        ----+----+---- 
+#          2 |  5 |  1
+#         
+#        Neither a + b <= 3 or z + b <= 6 is true
+#        so perform c = 1.  

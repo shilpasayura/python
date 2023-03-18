@@ -1,0 +1,37 @@
+﻿# GradeRecordsJson Example
+# Convert the file grade-records.txt to JSON.
+
+import json
+
+fin = open("grade-records.txt", "r")
+
+# Throw away first line
+fin.readline( )
+
+arr = [ ]
+line = fin.readline( )
+while line != "":
+    fields = line.split(",")
+    line = fin.readline( )
+    student_id = fields[0].strip( )
+    last_name = fields[1].strip( )
+    first_name = fields[2].strip( )
+    course_number = fields[3].strip( )
+    course_name = fields[4].strip( )
+    prof_name = fields[5].strip( )
+    credit_hours = int(fields[6].strip( ))
+    grade = fields[7].strip( )
+    d = { "student_id"   : student_id,    \
+          "last_name"    : last_name,     \
+          "first_name"   : first_name,     \
+          "course_number": course_number, \
+          "course_name"  : course_name,   \
+          "credit_hours" : credit_hours,
+          "grade"        : grade }
+    arr.append(d)
+
+fin.close( )
+json_string = json.dumps(arr)
+fout = open("grade-records.json", "w")
+fout.write(json_string)
+fout.close( )

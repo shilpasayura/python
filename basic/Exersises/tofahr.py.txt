@@ -1,0 +1,13 @@
+﻿# ToFahr Example
+# Use to_fahr method to convert a Celsius temperature to Fahrenheit. 
+
+# Input parameter: a celsius temperature.
+# Return value: the corresponding Farenheit temperature.
+def to_fahr(celsius_temperature):
+    fahrenheit_temperature = 9.0 * celsius_temperature / 5.0 + 32.0
+    return fahrenheit_temperature 
+
+# Test method
+cel = float(input("Enter a Celsius temperature: "))
+fahr = to_fahr(cel)
+print(f"Fahrenheit temperature is: {fahr}")

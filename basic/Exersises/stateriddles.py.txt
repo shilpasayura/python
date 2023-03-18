@@ -1,0 +1,20 @@
+﻿# StateRiddles Example
+# Use methods to display riddles about various states.
+
+# Riddle about alabama.
+def tell_state_riddle1( ):
+    print("What is the smartest state?")
+    print("Alabama.  It has 4 As and 1 B.\n")
+
+def tell_state_riddle2( ):
+    print("What state needs a handkerchief?")
+    print("mass-ACHU-setts.\n")
+
+def tell_state_riddle3( ):
+    print("What did Tennesee?")
+    print("The same thing that Arkansas.\n")
+
+# Tell riddles (invoke methods)
+tell_state_riddle2( )
+tell_state_riddle3( )
+tell_state_riddle1( )

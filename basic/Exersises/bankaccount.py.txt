@@ -1,0 +1,26 @@
+﻿# BankAccount Example
+# bankaccount.py file
+
+class BankAccount:
+
+    def __init__(self, the_acct_id, the_name, the_phone):
+        self.acct_id = the_acct_id
+        self.name = the_name
+        self.phone = the_phone
+        # _balance is private. It can only be used
+        # in this class file.
+        self._balance = 0.0
+
+    def __str__(self):
+        return f"{self.acct_id} {self.name} {self.phone}"
+
+    def check_balance(self):
+        return self._balance
+
+    def deposit(self, the_amount):
+        if the_amount > 0:
+            self._balance += the_amount
+
+    def withdraw(self, the_amount):
+        if the_amount < self._balance and the_amount > 0:
+            self._balance -= the_amount

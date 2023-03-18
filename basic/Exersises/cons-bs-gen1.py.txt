@@ -1,0 +1,83 @@
+﻿# ConsBSGen Example
+# Generate a random sentence to simulate one written by an IT salesperson.
+
+import random
+
+# Initialize verb, adjective, noun.
+verb = ""
+adjective = ""
+noun = ""
+
+# Randomly pick verb.
+n = random.randrange(1, 11)
+if n == 1:    
+  verb = "architect"
+elif n == 2:
+  verb = "e-enable"
+elif n == 3:
+  verb = "facilitate"
+elif n == 4:
+  verb = "harness"
+elif n == 5:
+  verb = "incentivize"
+elif n == 6:
+  verb = "leverage"
+elif n == 7:
+  verb = "optimize"
+elif n == 8:
+  verb = "synergize"
+elif n == 9:
+  verb = "unleash"
+else:
+  verb = "whiteboard"
+
+# Randomly pick adjective.
+n = random.randrange(1, 11)
+if n == 1:
+  adjective = "24/7"
+elif n == 2:
+  adjective = "collaborative"
+elif n == 3:
+  adjective = "cutting-edge"
+elif n == 4:
+  adjective = "dynamic"
+elif n == 5:
+  adjective = "end-to-end"
+elif n == 6:
+  adjective = "granular"
+elif n == 7:
+  adjective = "intuitive"
+elif n == 8:
+  adjective = "mission-critical"
+elif n == 9:
+  adjective = "plug-and-play"
+else:
+  adjective = "seamless"
+
+# Randomly pick noun.
+n = random.randrange(1, 11)
+if n == 1:
+  noun = "action-items"
+elif n == 2:
+  noun = "applications"
+elif n == 3:
+  noun = "bandwidth"
+elif n == 4:
+  noun = "deliverables"
+elif n == 5:
+  noun = "infrastructures"
+elif n == 6:
+  noun = "markets"
+elif n == 7:
+  noun = "niches"
+elif n == 8:
+  noun = "plug-and-play"
+elif n == 9:
+  noun = "schemas"
+else:
+  noun = "synergies"
+
+# Assemble sentence.
+sentence = "Our consultants can help your company " + \
+    verb + " " + adjective + " " + noun + "."
+print(sentence)

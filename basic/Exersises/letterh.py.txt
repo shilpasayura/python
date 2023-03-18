@@ -1,0 +1,34 @@
+﻿# LetterH Example
+# Draw the letter H using asterisks
+
+# Open output file
+fout = open("h.txt", "w")
+
+# Draw top (Region 1)
+for y in range(0, 8):
+    for x in range(0, 6):
+        fout.write("*")
+    for x in range(0, 8):
+        fout.write(" ")
+    for x in range(0, 6):
+        fout.write("*")
+    fout.write("\n")
+
+# Draw center bar (Region 2)
+for y in range(0, 4):
+    for x in range(0, 20):
+        fout.write("*")
+    fout.write("\n")
+
+# Draw bottom (Region 3)
+for y in range(0, 8):
+    for x in range(0, 6):
+        fout.write("*")
+    for x in range(0, 8):
+        fout.write(" ")
+    for x in range(0, 6):
+        fout.write("*")
+    fout.write("\n")
+
+# Close output file.
+fout.close( )

@@ -1,0 +1,59 @@
+﻿# LetterZPpm Example
+# Draw the letter Z in a PPM file.
+# Use light pink (255,230,230) for background color.
+# Use navy (0,0,128) for foreground color.
+
+# Open output file
+fout = open("z.ppm", "w")
+
+# Write light pink background pixel
+def draw_background_pixel( ):
+    fout.write("255 230 230   ")
+
+# Write navy foreground pixel
+def draw_foreground_pixel( ):
+    fout.write("0 0 128   ")
+
+def write_graphics_file_header( ):
+    fout.write("P3 200 200 255\n")
+
+def draw_top_space( ):
+    for y in range(0, 30):
+        for x in range(0, 200):
+            draw_background_pixel( )
+        fout.write("\n")
+
+def draw_horizontal_bar( ):
+    for y in range(30, 50):
+        for x in range(0, 40):
+            draw_background_pixel( )
+        for x in range(40, 160):
+            draw_foreground_pixel( )
+        for x in range(160, 200):
+            draw_background_pixel( )
+        fout.write("\n")
+
+def draw_diagonal_bar( ):
+    for y in range(50, 140):
+        for x in range(0, 180 - y):
+            draw_background_pixel( )
+        for x in range(180 - y, 210 - y):
+            draw_foreground_pixel( )
+        for x in range(210 - y, 200):
+            draw_background_pixel( )
+        fout.write("\n")
+
+def draw_bottom_space( ):
+    for y in range(140, 200):
+        for x in range(1, 200):
+            draw_background_pixel( )
+        fout.write("\n")
+	
+write_graphics_file_header( )
+draw_top_space( )
+draw_horizontal_bar( )
+draw_diagonal_bar( )
+draw_horizontal_bar( )
+draw_bottom_space( )
+
+fout.close( )

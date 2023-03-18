@@ -1,0 +1,25 @@
+﻿# LeapYear Example
+# Classify a year as leap year or not a leap year 
+# according to the Gregorian calendar. 
+
+# Input and classify year
+year = int(input("Enter a year: "))
+
+if year % 4 != 0:
+    is_leap_year = False
+  
+elif year % 400 == 0:
+    is_leap_year = True
+  
+elif year % 100 == 0:
+    is_leap_year = False
+  
+else:
+    is_leap_year = True
+
+# Print output
+if is_leap_year:
+    print("The year", year, "is a leap year.")
+    
+else:
+    print("The year ", year, "is not a leap year.")
